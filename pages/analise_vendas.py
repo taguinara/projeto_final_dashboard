@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 
 # 1. Configuração de Estilo (Mantendo a identidade visual profissional)
-# CORREÇÃO: Alterado de #FFFFFF para #3F3FD4 conforme solicitado para textos e headers
 st.markdown("""
     <style>
         .stApp {

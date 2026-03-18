@@ -57,6 +57,9 @@ analise_vendas = st.Page("pages/analise_vendas.py",
 analise_produtos = st.Page("pages/analise_produtos.py",
                             title='Produtos',
                             icon='📦')
+analise_produtos_professor = st.Page("pages/analise_produtos_professor.py",
+                 title='Produtos - Professor',
+                 icon='🧑🏽‍🏫')
 sobre = st.Page("pages/sobre.py",
                  title='Sobre',
                  icon='ℹ️')
@@ -65,7 +68,7 @@ sobre = st.Page("pages/sobre.py",
 # 4. Navegação Estruturada por Seções
 pg = st.navigation({
     "Principal": [visao_geral],
-    "Análises": [analise_vendas, analise_produtos],
+    "Análises": [analise_vendas, analise_produtos, analise_produtos_professor],
     "Sobre": [sobre]
 })
 
