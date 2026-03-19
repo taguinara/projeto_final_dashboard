@@ -76,14 +76,14 @@ receita_total = dados_filtrados['Vendas'].sum()
 lucro_total = dados_filtrados['Lucro'].sum()
 
 # CORREÇÃO: Adicionado formatação e Deltas (setas verdes/vermelhas)
-col1.metric("Receita filtrada", formatar_real(receita_total), delta="Vendas")
-col2.metric("Lucro filtrado", formatar_real(lucro_total), delta="Lucro")
+col1.metric("Receita filtrada", formatar_real(receita_total), border=True)
+col2.metric("Lucro filtrado", formatar_real(lucro_total), border=True)
 
 margem_media = 0.0
 if receita_total > 0:
     margem_media = (lucro_total / receita_total * 100)
 
-col3.metric("Margem média", f"{margem_media:.2f}%", delta="Margem")
+col3.metric("Margem média", f"{margem_media:.2f}%", border=True)
 
 st.divider()
 
