@@ -31,7 +31,7 @@ def formatar_real(valor):
 # Utiliza a função para carregar os dados
 dados_vendas = carregar_dados()
 
-st.title(":moneybag: Análise Detalhada de Vendas")
+st.title("Análise Detalhada de Vendas")
 
 # Filtros para análise
 st.sidebar.header("Filtros de Vendas")
@@ -75,15 +75,14 @@ col1, col2, col3 = st.columns(3)
 receita_total = dados_filtrados['Vendas'].sum()
 lucro_total = dados_filtrados['Lucro'].sum()
 
-# CORREÇÃO: Adicionado formatação e Deltas (setas verdes/vermelhas)
-col1.metric("Receita filtrada", formatar_real(receita_total), border=True)
-col2.metric("Lucro filtrado", formatar_real(lucro_total), border=True)
+col1.metric("💰 Receita filtrada", formatar_real(receita_total), border=True)
+col2.metric("📈 Lucro filtrado", formatar_real(lucro_total), border=True)
 
 margem_media = 0.0
 if receita_total > 0:
     margem_media = (lucro_total / receita_total * 100)
 
-col3.metric("Margem média", f"{margem_media:.2f}%", border=True)
+col3.metric("📊 Margem média", f"{margem_media:.2f}%", border=True)
 
 st.divider()
 
@@ -112,7 +111,6 @@ with v_col2:
         color_continuous_scale=px.colors.sequential.Blues,
     )
     
-    # CORREÇÃO: Ajuste de cores do gráfico para não sumir no fundo
     fig_vend.update_layout(
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -123,7 +121,6 @@ with v_col2:
 # --- ANÁLISE TEMPORAL ---
 st.subheader(":calendar: Análise Temporal")  
 
-# CORREÇÃO: Adicionado copy() para evitar SettingWithCopyWarning
 dados_filtrados = dados_filtrados.copy()
 dados_filtrados['Mês'] = dados_filtrados["Data"].dt.to_period('M').astype(str)
 mensal = dados_filtrados.groupby('Mês').agg(
@@ -138,7 +135,6 @@ fig_temp = px.bar(
     color_discrete_sequence=['#3F3FD4', '#1E90FF'] # Tons de azul
 )
 
-# CORREÇÃO: Ajuste visual para transparência e cores dos textos
 fig_temp.update_layout(
     xaxis_tickangle=-45,
     paper_bgcolor='rgba(0,0,0,0)',

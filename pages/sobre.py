@@ -1,19 +1,18 @@
 import streamlit as st
 import pandas as pd
 
-
 st.markdown("""
-    <style>
-        .stApp {
-            background-color: #191970;
-        }
-        h1, h2, h3, h4, h5, h6, span, p, label, .stMetric div {
-            color: #FFFFFF !important;
-        }
-        [data-testid="stMetricValue"] {
-            color: #FFFFFF !important;
-        }
-    </style>
+<style>
+    .stApp {
+        background-color: #191970;
+    }
+    h1, h2, h3, h4, h5, h6, span, p, label, .stMetric div {
+        color: #FFFFFF !important;
+    }
+    [data-testid="stMetricValue"] {
+        color: #FFFFFF !important;
+    }
+</style>
 """, unsafe_allow_html=True)
 
 

@@ -49,7 +49,6 @@ col1, col2, col3, col4 = st.columns(4)
 col1.metric(
     label="💰 Receita Total", 
     value=formatar_real(receita_atual),
-    delta="10% vs mês ant.", # Valor positivo = Seta Verde
     delta_color="normal",
     border=True
 )
@@ -58,7 +57,6 @@ col1.metric(
 col2.metric(
     label="📈 Lucro Total", 
     value=formatar_real(lucro_atual),
-    delta="-5.2% vs mês ant.", # Valor negativo = Seta Vermelha
     delta_color="normal",
     border=True
 )
@@ -67,7 +65,6 @@ col2.metric(
 col3.metric(
     label="🛒 Transações", 
     value=f"{transacoes_atual}",
-    delta="12 novos",
     delta_color="normal",
     border=True
 )
@@ -76,14 +73,13 @@ col3.metric(
 col4.metric(
     label="📊 Ticket Médio", 
     value=formatar_real(ticket_medio_atual),
-    delta="R$ 15,00",
     delta_color="normal",
     border=True
 )
 
 st.divider()
 
-# --- Restante dos Gráficos (Mantendo o padrão Azul) ---
+# --- Restante dos Gráficos ---
 colA, colB = st.columns(2)
 
 with colA:
