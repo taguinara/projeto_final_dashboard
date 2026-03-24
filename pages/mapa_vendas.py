@@ -2,21 +2,6 @@ import streamlit as st
 import pandas as pd
 import locale
 
-# ---------- Função de formatação (Sua Função Adicionada) ----------
-def format_brl(value):
-    try:
-        # Tenta configurar para português do Brasil
-        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-    except locale.Error:
-        try:
-            locale.setlocale(locale.LC_ALL, 'pt_BR')
-        except locale.Error:
-            # Se falhar o locale do sistema, usa formatação manual
-            return f"R$ {value:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
-    
-    return locale.currency(value, symbol=True, grouping=True)
-
-
 # ---------- Estilo ----------
 st.set_page_config(layout="wide") # Melhor visualização para tabelas e mapas
 st.markdown("""
@@ -108,7 +93,7 @@ if lat_col and lon_col:
 else:
     st.warning("⚠️ Colunas de latitude e longitude não encontradas.")
 
-# ---------- Tabela de Resumo por Cidade (A CORREÇÃO ESTÁ AQUI) ----------
+# ---------- Tabela de Resumo por Cidade  ----------
 st.subheader("Resumo por Cidade")
 
 # Agrupando os dados por cidade e calculando as métricas
